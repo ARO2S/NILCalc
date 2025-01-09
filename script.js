@@ -96,6 +96,8 @@ class NILMatrix {
 
     calculateAndDisplayEndowment() {
         const endowment = this.calculateEndowment();
+        const annualSalary = endowment * this.endowmentRate;
+        
         const formattedEndowment = new Intl.NumberFormat('en-US', {
             style: 'currency',
             currency: 'USD',
@@ -103,8 +105,21 @@ class NILMatrix {
             maximumFractionDigits: 0
         }).format(Math.round(endowment));
         
+        const formattedAnnual = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+        }).format(Math.round(annualSalary));
+        
         document.getElementById('endowmentResult').innerHTML = 
-            `Required Endowment:<br><span style="font-size: 2.2rem; color: #4299e1; display: block; margin-top: 0.5rem;">${formattedEndowment}</span>`;
+            `Required Endowment:<br>
+            <span style="font-size: 2.2rem; color: #4299e1; display: block; margin-top: 0.5rem;">
+                ${formattedEndowment}
+            </span>
+            <span style="font-size: 1.2rem; color: #718096; display: block; margin-top: 0.5rem;">
+                Annual Roster Cost: ${formattedAnnual}
+            </span>`;
     }
 
     clearMatrix() {

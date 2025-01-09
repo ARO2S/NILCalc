@@ -21,14 +21,14 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
+    gap: 0.5rem;
 }
 
 h1 {
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     color: #2c3e50;
-    font-size: clamp(1.5rem, 4vw, 2.5rem);
-    font-weight: 600;
+    font-size: clamp(1.2rem, 3vw, 2rem);
 }
 
 /* Floating limits box */
@@ -37,11 +37,11 @@ h1 {
     top: 1rem;
     right: 1rem;
     background-color: white;
-    padding: 1rem;
+    padding: 0.75rem;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     min-width: min(300px, 90vw);
-    font-size: clamp(0.8rem, 2vw, 1rem);
+    font-size: clamp(0.7rem, 1.5vw, 0.9rem);
 }
 
 /* Mode selector styling */
@@ -49,7 +49,7 @@ h1 {
     display: flex;
     justify-content: center;
     gap: 1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .mode-selector button {
@@ -76,10 +76,11 @@ h1 {
     padding: 0.5rem;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     flex: 1;
     display: flex;
     min-height: 0;
+    max-height: calc(100vh - 350px);
 }
 
 table {
@@ -92,7 +93,7 @@ table {
 
 th, td {
     border: 1px solid #e9ecef;
-    padding: clamp(0.2rem, 1vw, 0.8rem);
+    padding: clamp(0.15rem, 0.8vw, 0.6rem);
     text-align: center;
     height: 1fr;
 }
@@ -117,7 +118,7 @@ input[type="number"] {
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    padding: 1rem 0;
+    padding: 0.5rem 0;
     flex-wrap: wrap;
 }
 
@@ -138,12 +139,15 @@ input[type="number"] {
 /* Results styling */
 .results {
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
 }
 
 #endowmentResult {
-    font-size: clamp(1.2rem, 3vw, 1.8rem);
-    padding: 1rem;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    padding: 0.5rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Mobile optimizations */
@@ -160,6 +164,7 @@ input[type="number"] {
 
     .matrix-container {
         padding: 0.3rem;
+        max-height: calc(100vh - 300px);
     }
 
     .controls, .endowment-input {
@@ -169,6 +174,7 @@ input[type="number"] {
 
     #endowmentResult {
         width: 100%;
+        padding: 0.3rem;
     }
 
     th, td {
@@ -223,4 +229,19 @@ input[type="number"] {
 
 #clearBtn:hover {
     background-color: #c53030;
+}
+
+/* Additional small screen adjustments */
+@media (max-height: 800px) {
+    .matrix-container {
+        max-height: calc(100vh - 280px);
+    }
+
+    .mode-selector button {
+        padding: 0.5rem 1rem;
+    }
+
+    .controls button {
+        padding: 0.4rem 0.8rem;
+    }
 } 
