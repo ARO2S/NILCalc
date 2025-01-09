@@ -1,0 +1,226 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: #2c3e50;
+    min-height: 100vh;
+    margin: 0;
+    padding: 1rem;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 600;
+}
+
+/* Floating limits box */
+.limits {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: min(300px, 90vw);
+    font-size: clamp(0.8rem, 2vw, 1rem);
+}
+
+/* Mode selector styling */
+.mode-selector {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.mode-selector button {
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    background-color: white;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    color: #4299e1; /* Blue text for inactive state */
+}
+
+.mode-selector button.active {
+    background-color: #4299e1;
+    color: white; /* White text for active state */
+    border: 2px solid #3182ce;
+}
+
+/* Matrix styling */
+.matrix-container {
+    background-color: white;
+    padding: 0.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    flex: 1;
+    display: flex;
+    min-height: 0;
+}
+
+table {
+    width: 100%;
+    height: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: clamp(0.6rem, 1.5vw, 1rem);
+}
+
+th, td {
+    border: 1px solid #e9ecef;
+    padding: clamp(0.2rem, 1vw, 0.8rem);
+    text-align: center;
+    height: 1fr;
+}
+
+input[type="number"] {
+    width: clamp(35px, 8vw, 60px);
+    padding: clamp(0.1rem, 0.5vw, 0.3rem);
+    text-align: center;
+    border: 1px solid #e9ecef;
+    border-radius: 4px;
+    font-size: clamp(0.6rem, 1.5vw, 0.9rem);
+}
+
+.salary-display {
+    font-size: clamp(0.5rem, 1.2vw, 0.8rem);
+    margin-top: 0.2rem;
+}
+
+/* Controls section */
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    flex-wrap: wrap;
+}
+
+/* Endowment input styling */
+.endowment-input {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+}
+
+/* Results styling */
+.results {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+#endowmentResult {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    padding: 1rem;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .container {
+        padding: 0.3rem;
+    }
+
+    .limits {
+        position: static;
+        margin-bottom: 1rem;
+        width: 100%;
+    }
+
+    .matrix-container {
+        padding: 0.3rem;
+    }
+
+    .controls, .endowment-input {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    #endowmentResult {
+        width: 100%;
+    }
+
+    th, td {
+        padding: 0.2rem;
+    }
+
+    input[type="number"] {
+        width: clamp(30px, 7vw, 40px);
+    }
+}
+
+/* Additional small screen optimizations */
+@media (max-width: 500px) {
+    .matrix-container {
+        padding: 0.2rem;
+    }
+
+    th, td {
+        padding: 0.15rem;
+    }
+
+    input[type="number"] {
+        width: 25px;
+        padding: 0.1rem;
+    }
+
+    .salary-display {
+        font-size: 0.5rem;
+    }
+}
+
+/* Extra small screen optimizations */
+@media (max-width: 360px) {
+    th, td {
+        padding: 0.1rem;
+    }
+
+    input[type="number"] {
+        width: 20px;
+    }
+
+    .salary-display {
+        font-size: 0.45rem;
+    }
+}
+
+/* Optional: Add specific styling for the clear button */
+#clearBtn {
+    background-color: #e53e3e; /* Red color for clear action */
+    color: white;
+}
+
+#clearBtn:hover {
+    background-color: #c53030;
+} 
